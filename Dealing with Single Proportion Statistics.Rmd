@@ -1,0 +1,63 @@
+
+CV=function(CL){qnorm(CL+(1-CL)/2)}
+#CV(.95)
+#CV(.90)
+#CV(.99)
+#CV(.978)
+
+
+
+#SD/SE of a proportion
+
+SD.SE.p=function(p,n){sqrt(p*(1-p)/n)}
+#SD.SE.p(.82,100) #p=82%, no. of samples=100
+
+
+
+CI=function(p,se,ci){
+print (p+se*CV(ci))
+print (p-se*CV(ci))
+}
+
+#CI(.82,se=SD.SE.p(.82,100) )
+CI(.82,se=SD.SE.p(.82,49), ci=.99 )
+
+
+Total=23+21+22+14+17+14
+prop=22/Total
+prop
+
+CI(prop,se=SD.SE.p(prop,Total), ci=.97 )
+
+
+Total2=22+22+21+15+17+13
+prop2=15/Total
+prop2
+
+CI(prop2,se=SD.SE.p(prop2,Total2), ci=.99)
+
+#An experimenter flips a coin 100 times and gets 56 heads. Find the 96.5% confidence interval for the probability of #flipping a head with this coin. 
+Total3=100
+prop3=56/Total3
+prop3
+
+CI(prop3,se=SD.SE.p(prop3,Total3), ci=.956)
+
+#It has been observed that some persons who suffer colitis are diagnosed with it again within one year of the first #episode. This is due, in part, to damage from the first episode. In order to examine the percentage of the persons who #suffer colitis a second time, a random sample of 1000 people who suffered colitis was collected. It was observed that #15 of them again suffered colitis within one year. Select a 95% confidence interval for the true proportion of those #who suffer a second episode. 
+
+
+Total4=1000
+prop4=15/Total4
+prop4
+
+CI(prop4,se=SD.SE.p(prop4,Total4), ci=.95)
+
+
+#Television viewers often express doubts about the validity of certain commercials. In an attempt to answer their critics, a large advertiser wants to estimate the true proportion of consumers who believe what is shown in commercials. Preliminary studies indicate that about 40% of those surveyed believe what is shown in commercials. What is the minimum number of consumers that should be sampled by the advertiser to be 98% confident that their estimate will fall within 1% of the true population proportion? 
+
+Min.Samples.Proportion=function(p,ci, me){p*(1-p)*CV(ci)^2/me^2}
+Min.Samples.Proportion(.35,.95,.03)
+#Television viewers often express doubts about the validity of certain commercials. In an attempt to answer their critics, a large advertiser wants to estimate the true proportion of consumers who believe what is shown in commercials. Preliminary studies indicate that about 40% of those surveyed believe what is shown in commercials. What is the minimum number of consumers that should be sampled by the advertiser to be 98% confident that their estimate will fall within 1% of the true population proportion? 
+Min.Samples.Proportion(.4,.98,.01)
+#An oil company is interested in estimating the true proportion of female truck drivers based in five southern states. A statistician hired by the oil company must determine the sample size needed in order to make the estimate accurate to within 2% of the true proportion with 99% confidence. What is the minimum number of truck drivers that the statistician should sample in these southern states in order to achieve the desired accuracy? 
+Min.Samples.Proportion(.5,.99,.02)

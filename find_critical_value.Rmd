@@ -1,0 +1,11 @@
+Title: Find Critical Value
+========================================================
+
+#R's data frame
+```{r}
+CV=function(CL){qnorm(CL+(1-CL)/2)}
+CV(.95)
+CV(.90)
+CV(.99)
+
+```
