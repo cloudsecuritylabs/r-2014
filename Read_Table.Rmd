@@ -1,0 +1,11 @@
+Download and reading local data
+========================================================
+how to use read.table() function
+
+```{r}
+camera.data=read.table("./data/cameras.csv", sep=",", header=T)
+head(camera.data)
+```
+
+
+
