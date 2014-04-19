@@ -7,5 +7,6 @@ CV=function(CL){qnorm(CL+(1-CL)/2)}
 CV(.95)
 CV(.90)
 CV(.99)
+CV(.98)
 
 ```

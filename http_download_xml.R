@@ -1,5 +1,5 @@
 library(XML)
-fileURL="http://www.w3schools.com/xml/simple.xml"
+fileURL="http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml"
 doc=xmlTreeParse(fileURL,useInternal=T)
 rootNode=xmlRoot(doc)
 xmlName(rootNode)
@@ -13,7 +13,8 @@ xmlSApply(rootNode,xmlValue)
 
 xpathSApply(rootNode,"//name", xmlValue)
 
-xpathSApply(rootNode,"//price", xmlValue)
+a=xpathSApply(rootNode,"//zipcode", xmlValue)
+table(a)
 
 datedownloaded=date()
 datedownloaded
